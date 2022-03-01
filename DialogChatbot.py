@@ -18,7 +18,7 @@ def Get_Data():
             'x-rapidapi-host': "motivational-quotes1.p.rapidapi.com",
             'x-rapidapi-key': "a18e3fac81mshebe52b1274e2648p176074jsn2cdb75cd9456"}
         response = requests.request("POST", url, data=data, headers=headers,verify=False)
-        return jsonify({"fulfillment":response.text})
+        return jsonify({"fulfillmentText":response.text})
 
 if __name__=='__main__':
     port = int(os.environ.get('PORT', 5000))
