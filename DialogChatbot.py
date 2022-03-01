@@ -1,6 +1,7 @@
 from flask import Flask,request,jsonify
 import json
 import requests
+import os
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
@@ -20,4 +21,5 @@ def Get_Data():
         return jsonify({"fulfillment":response.text})
 
 if __name__=='__main__':
-    app.run(debug=False)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
